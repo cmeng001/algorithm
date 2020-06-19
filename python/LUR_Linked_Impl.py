@@ -1,8 +1,10 @@
+# 节点对象
 class Node:
     def __init__(self,data,nextNode):
         self.data = data
         self.next = nextNode
 
+# 连表对象
 class LinkedList:
     def __init__(self):
         self.first = None
@@ -50,15 +52,13 @@ class LinkedList:
             print(dataStr)
 
     def getValue(self,element):
-        value = None;
         i=self.first
         while(i!=None):            
             if(element==i.data):                
-                value = i.data
                 return i.data
             i = i.next
 
-# LUR缓存
+# LUR缓存（最近最少使用策略）
 def lur(link,element):
     value = link.getValue(element)
     if(value==None):
