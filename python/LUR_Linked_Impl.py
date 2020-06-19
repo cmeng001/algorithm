@@ -71,27 +71,44 @@ def lur(link,element):
         link.addFirst(element)
 
 
+def palindromic(link):
+    one = link.first
+    two = link.first
+    firstHalf = ''
+    while(two!=None and two.next!=None):
+        firstHalf = firstHalf + str(one.data)
+        one = one.next
+        two = two.next.next
+    secondHalf = ''
+    if(link.size%2!=0):
+        firstHalf = firstHalf+str(one.data)
+    while(one!=None):
+        secondHalf = str(one.data) + secondHalf 
+        one = one.next
+    print('前半段：'+firstHalf)
+    print('后半段：'+secondHalf)
+
+
+
 
 
 if __name__ == '__main__':
-    firstNode = Node(1,None);
     link = LinkedList();
     link.add(1);
     link.add(2);
     link.add(3);
-    link.add(4);
-    link.add(5);
-     
-    lur(link,10)
-    lur(link,9)
-    lur(link,8)
-    lur(link,7)
-    lur(link,6)
-    lur(link,5)
-    lur(link,10)
-    lur(link,9)
+    link.add(2);
+    link.add(1);
+    palindromic(link)
     
-    link.printLink();
+    link1 = LinkedList();
+    link1.add(4);
+    link1.add(5);
+    link1.add(6);
+    link1.add(6);
+    link1.add(5);
+    link1.add(4);
+    palindromic(link1)
 
 
 
