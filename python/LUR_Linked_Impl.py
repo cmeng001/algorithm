@@ -75,20 +75,25 @@ def lur(link,element):
 def palindromic(link):
     one = link.first
     two = link.first
-    firstHalf = ''
+    reverse = None
     while(two!=None and two.next!=None):
-        firstHalf = firstHalf + str(one.data)
-        one = one.next
         two = two.next.next
-    secondHalf = ''
-    if(link.size%2!=0):
-        firstHalf = firstHalf+str(one.data)
-    while(one!=None):
-        secondHalf = str(one.data) + secondHalf 
+        oneNext = one.next
+        # 前半段反序        
+        one.next = reverse
+        reverse = one
+        one = oneNext
+    
+    if(two!=None):
         one = one.next
-    print('前半段：'+firstHalf)
-    print('后半段：'+secondHalf)
-
+    while(one!=None and reverse!=None):
+        if(one.data!=reverse.data):
+            print('flase')
+        one = one.next
+        reverse = reverse.next
+    
+        
+    
 
 
 
