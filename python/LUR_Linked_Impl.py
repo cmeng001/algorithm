@@ -58,6 +58,7 @@ class LinkedList:
                 return i.data
             i = i.next
 
+# LUR缓存
 def lur(link,element):
     value = link.getValue(element)
     if(value==None):
@@ -70,7 +71,7 @@ def lur(link,element):
         link.delete(element)
         link.addFirst(element)
 
-
+# 回文字符串
 def palindromic(link):
     one = link.first
     two = link.first
